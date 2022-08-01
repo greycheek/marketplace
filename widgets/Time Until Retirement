@@ -1,0 +1,28 @@
+
+var header =
+{
+  "description": "Display Time Until Retirement",
+  "author": "Bob Tedesco Jr",
+  "snapshots": [],
+  "files": []
+}
+
+var today = new Date();
+var lastDay = new Date(today.getFullYear() + 1, 12, 4); //enter your retirement date here; adjust for year
+var perDay = 1000 * 60 * 60 * 24;
+var perWeek = perDay * 7;
+var leftDays = Math.ceil((lastDay.getTime() - today.getTime()) / perDay);
+var leftWeeks = Math.ceil((lastDay.getTime() - today.getTime()) / perWeek);
+
+$render(
+ <vstack background="green" frame="max">
+    <text font="title1" color="white">
+    Weeks To Retirement {leftWeeks}
+    </text>
+   <text> </text>
+    <text font="title1" color="black">
+    Days To Retirement {leftDays}
+    </text>
+  </vstack>  
+);
+
